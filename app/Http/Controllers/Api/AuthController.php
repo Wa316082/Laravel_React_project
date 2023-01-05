@@ -8,6 +8,7 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SignupRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -36,7 +37,7 @@ class AuthController extends Controller
 
         if(!Auth::attempt($credentials)){
             return response([
-                'message' => 'Incorret password od email'
+                'message' => 'Incorret password or email'
             ]);
         }else{
             /** @var User $user */
