@@ -9,7 +9,7 @@ export default function Singup() {
     const passwordRef = useRef();
     const passwordConfirmationRef = useRef();
 
-    const {setUser, setToken} = useStateContext()
+    const { setUser, setToken } = useStateContext()
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -20,17 +20,18 @@ export default function Singup() {
             password_confirmation: passwordConfirmationRef.current.value,
         }
 
-        axiosClient.post('/signup',payload)
-        .then(({data})=>{
-            setToken(data.token)
-            setUser(data.user)
-        })
-        .catch(err=>{
-            const response = err.response;
-            if(response && response.status === 422){
-                console.log(response.data.errors);
-            }
-        })
+        axiosClient.post('/signup', payload)
+            .then(({ data }) => {
+                console.log(data);
+                setToken(data.token)
+                setUser(data.user)
+            })
+            .catch(err => {
+                const response = err.response;
+                if (response && response.status === 422) {
+                    console.log(response.data.errors);
+                }
+            })
 
     }
     return (
