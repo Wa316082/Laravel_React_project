@@ -8,7 +8,7 @@ export default function Login() {
     const passwordRef = useRef();
 
 
-    const {setUser, setToken} = useStateContext()
+    const {setUser, setToken} = useStateContext();
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -21,6 +21,7 @@ export default function Login() {
 
         axiosClient.post('/login',payload)
         .then(({data})=>{
+            // console.log(data);
             setToken(data.token)
             setUser(data.user)
         })

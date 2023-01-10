@@ -22,7 +22,7 @@ export default function Singup() {
 
         axiosClient.post('/signup', payload)
             .then(({ data }) => {
-                console.log(data);
+                // console.log(data);
                 setToken(data.token)
                 setUser(data.user)
             })

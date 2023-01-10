@@ -5,7 +5,7 @@ import { useStateContext } from '../../contexts/ContextProvider'
 
 export default function () {
 
-    const { user, token } = useStateContext()
+    const { user, token , setUser, setToken } = useStateContext()
     if (!token) {
         return <Navigate to="/login" />
     }
