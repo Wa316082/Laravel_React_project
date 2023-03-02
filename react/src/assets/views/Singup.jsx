@@ -2,6 +2,7 @@ import React from 'react'
 import { useRef } from 'react';
 import axiosClient from '../../axios-client';
 import { useStateContext } from '../../contexts/ContextProvider';
+import { Navbar } from './Navbar';
 
 export default function Singup() {
     const nameRef = useRef();
@@ -35,8 +36,11 @@ export default function Singup() {
 
     }
     return (
+        <>
+        <Navbar />
         <div className='login-signup-form animated fadeInDown'>
             <div className="form">
+
                 <form onSubmit={onSubmit}>
                     <h1 className='title'>SignUp</h1>
                     <input ref={nameRef} placeholder='Name' type="text" />
@@ -50,5 +54,6 @@ export default function Singup() {
                 </form>
             </div>
         </div>
+        </>
     )
 }

@@ -7,7 +7,7 @@ export default function () {
 
     const { user, token , setUser, setToken } = useStateContext()
     if (!token) {
-        return <Navigate to="/login" />
+        return <Navigate to="/products" />
     }
     const onLogout = (e) => {
         e.preventDefault()
